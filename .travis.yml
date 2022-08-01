@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true sandravlado/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t sandravlado/multi-client ./client
-  - docker build -t sandravlado/multi-nginx ./nginx
-  - docker build -t sandravlado/multi-server ./server
-  - docker build -t sandravlado/multi-worker ./worker
+  - docker build -t vbundalo/multi-client ./client
+  - docker build -t vbundalo/multi-nginx ./nginx
+  - docker build -t vbundalo/multi-server ./server
+  - docker build -t vbundalo/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker-login -u "$DOCKER_ID" --password-stdin
 
-  - docker push sandravlado/multi-client
-  - docker push sandravlado/multi-nginx
-  - docker push sandravlado/multi-server
-  - docker push sandravlado/multi-worker
+  - docker push vbundalo/multi-client
+  - docker push vbundalo/multi-nginx
+  - docker push vbundalo/multi-server
+  - docker push vbundalo/multi-worker
