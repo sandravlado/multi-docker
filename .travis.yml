@@ -14,6 +14,7 @@ after_success:
   - docker build -t vbundalo/multi-server ./server
   - docker build -t vbundalo/multi-worker ./worker
 
+  - docker logout
   - echo "$DOCKER_PASSWORD" | docker-login -u "$DOCKER_ID" --password-stdin
 
   - docker push vbundalo/multi-client
