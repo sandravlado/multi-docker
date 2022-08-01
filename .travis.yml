@@ -16,7 +16,8 @@ after_success:
 
   - docker logout
   - echo "$DOCKER_PASSWORD"
-  - echo "$DOCKER_PASSWORD" | docker-login -u "$DOCKER_ID" --password-stdin
+  - docker-login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
+  # - echo "$DOCKER_PASSWORD" | docker-login -u "$DOCKER_ID" --password-stdin
 
   - docker push vbundalo/multi-client
   - docker push vbundalo/multi-nginx
